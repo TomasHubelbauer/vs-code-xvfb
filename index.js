@@ -5,6 +5,7 @@ For help, see: https://nodejs.org/en/docs/inspector
 
 const fs = require('fs-extra');
 const ws = require('ws');
+const assert = require('assert');
 
 void async function () {
   console.log('Parsing the web socket address from the output');
