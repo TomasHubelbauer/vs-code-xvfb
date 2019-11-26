@@ -19,7 +19,7 @@ jobs:
         # Check out the `master` branch because by default GitHub Actions checks out detached HEAD
         git checkout master
         # Install VS Code
-        curl https://go.microsoft.com/fwlink/?LinkID=760868 --output code.deb
+        curl https://go.microsoft.com/fwlink/?LinkID=760868 -L --output code.deb
         sudo apt install ./code.deb
         code -v
         # Start XVFB so that Electron can start and then have a screenshot taken
