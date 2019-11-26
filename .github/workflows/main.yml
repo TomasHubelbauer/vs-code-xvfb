@@ -24,15 +24,11 @@ jobs:
         code -v
         # Start XVFB so that Electron can start and then have a screenshot taken
         /usr/bin/Xvfb :0 &
-        # Run the test which generates the screenshot
+        # Run VS Code in inspector mode and redirect its outputs to a log file
         code . --inspect --wait &> code.log &
-        echo A
-        echo B
-        echo C
+        # Wait for the log file to be populated with the CDP web socket URL
+        sleep 1
         cat code.log
-        echo C
-        echo B
-        echo A
         # Stage the captured screenshot
         git add screenshot-*.png
         git commit -m "Commit the captured screenshot"
