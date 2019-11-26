@@ -18,14 +18,14 @@ jobs:
         git config --global user.name "Tomas Hubelbauer"
         # Check out the `master` branch because by default GitHub Actions checks out detached HEAD
         git checkout master
-        # Install VS Code
+        # Install VS Code https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions
         curl https://go.microsoft.com/fwlink/?LinkID=760868 -L --output code.deb
         sudo apt install ./code.deb
         code -v
         # Start XVFB so that Electron can start and then have a screenshot taken
         /usr/bin/Xvfb :0 &
         # Run the test which generates the screenshot
-        code --inspect
+        code . --inspect --wait &
         # Stage the captured screenshot
         git add screenshot-*.png
         git commit -m "Commit the captured screenshot"
