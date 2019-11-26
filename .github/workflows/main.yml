@@ -25,7 +25,14 @@ jobs:
         # Start XVFB so that Electron can start and then have a screenshot taken
         /usr/bin/Xvfb :0 &
         # Run the test which generates the screenshot
-        code . --inspect --wait &
+        code . --inspect --wait &> code.log &
+        echo A
+        echo B
+        echo C
+        cat code.log
+        echo C
+        echo B
+        echo A
         # Stage the captured screenshot
         git add screenshot-*.png
         git commit -m "Commit the captured screenshot"
