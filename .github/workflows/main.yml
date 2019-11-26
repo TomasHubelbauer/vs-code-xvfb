@@ -19,9 +19,9 @@ jobs:
         # Check out the `master` branch because by default GitHub Actions checks out detached HEAD
         git checkout master
         # Install VS Code
-        sudo chown root / # Fix / not root owned
-        sudo snap install --classic code
-        snap run code -v
+        curl https://go.microsoft.com/fwlink/?LinkID=760868 --output code.deb
+        sudo apt install code.deb
+        code -v
         # Start XVFB so that Electron can start and then have a screenshot taken
         /usr/bin/Xvfb :0 &
         # Run the test which generates the screenshot
