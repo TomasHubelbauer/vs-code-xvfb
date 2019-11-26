@@ -25,11 +25,15 @@ jobs:
         # Start XVFB so that Electron can start and then have a screenshot taken
         /usr/bin/Xvfb :0 &
         # Run VS Code in inspector mode and redirect its outputs to a log file
+        # Do this in PowerShell this way: `& code --inspect 2>&1 > code.log`
         code . --inspect --wait &> code.log &
         # Wait for the log file to be populated with the CDP web socket URL
         sleep 1
         cat code.log
-        # Stage the captured screenshot
+        # Run the script which will connect to Code and screenshot it
+        npm install
+        npm start
+        # Stage and commit the captured screenshot
         git add screenshot-*.png
         git commit -m "Commit the captured screenshot"
         # Authenticate with GitHub using the out of the box workflow integration PAT

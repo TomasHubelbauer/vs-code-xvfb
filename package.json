@@ -1,0 +1,10 @@
+{
+  "name": "vs-code-xvfb",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "ws": "^7.2.0"
+  }
+}
