@@ -23,7 +23,7 @@ jobs:
         sudo apt install ./code.deb
         code -v
         # Start XVFB so that Electron can start and then have a screenshot taken
-        /usr/bin/Xvfb :0 &
+        /usr/bin/Xvfb :0 -nolisten unix &
         # Run VS Code in inspector mode and redirect its outputs to a log file
         # Do this in PowerShell this way: `& code --inspect 2>&1 > code.log`
         code . --inspect --wait &> code.log &
