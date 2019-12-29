@@ -30,5 +30,4 @@ hopefully fixing the black screenshot which only happens on Linux for me.
 
 ## To-Do
 
-Figure out why the result of the expression evaluation is falsy and trips the
-`assert`.
+### Figure out why the result of the expression evaluation is falsy and trips the `assert`
